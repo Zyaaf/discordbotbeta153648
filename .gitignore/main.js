@@ -10,7 +10,7 @@ bot.on('ready', () => {
   console.log(`${bot.user.tag} est en ligne sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs !`)
 });
 
-bot.login("NDk0NTQxNTA0MDc4MTUxNjkx.Do1Bkg.U4t9LKXqKjBiZm4HnOwqn7YpEow");
+bot.login(process.env.loginuser);
 
 let pages = ['This is page one!', 'Second page', 'Third', 'You can add pages', 'All you need to do is add another item in the array', '**Supports markdown and regular chat description properties**']; 
 let page = 1; 
