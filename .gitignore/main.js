@@ -1,45 +1,61 @@
 const Discord = require('discord.js');
-
 var bot = new Discord.Client();
-var prefix = ("n!");
+
+var prefix = ("&");
 
 bot.on('ready', () => {
-    //bot.user.setActivity('n!help | ' + bot.users.size + ' users 🍁', {type: 'LISTENING'});
-    //bot.user.setActivity('n!help | ' + bot.users.size + ' utilisateurs', {type: 'WATCHING'});
-    //bot.user.setActivity('n!help | ' + bot.users.size + ' utilisateurs', {url:"https://www.twitch.tv/nekobot", type: "STREAMING"});
-  console.log(`${bot.user.tag} est en ligne sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs !`)
+    bot.user.setActivity('Fortnite', {type: 'WATCHING'});
+    console.log(`${bot.user.tag} est en ligne sur ${bot.guilds.size} serveurs avec ${bot.users.size} utilisateurs`);
 });
 
 bot.login(process.env.loginuser);
 
-bot.on('message', message => {
-  const args = message.content.split(" ").slice(1);
+bot.on('guildMemberAdd', member => {
+    const welcomechannel = member.guild.channels.find('name', '🚁bvn-bye')
+    var embed = new Discord.RichEmbed()
+    .setAuthor("Une nouvelle personne vient d'entrée !", message.author.avatarURL)
+    .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres** !`)
+    .setColor('#FFFFFF')
+    .setTimestamp()
+    return welcomechannel.send(embed)
+});
 
-    if (message.author.id !== config.ownerID) return;
-    if (!message.content.startsWith(config.prefix)) return;
-    let command = message.content.slice(config.prefix.length);
-    let split = command.split(" ");
-    command = split[0];
-    split.shift();
-    let code = split.join(" ");
-    if (command === "eval") {
-        message.delete()
-        try {
-        let ev = require('util').inspect(eval(code));
-        if (ev.length > 1950) {
-            ev = ev.substr(0, 1950);
+bot.on('guildMemberRemove', member => {
+    const welcomechannel = member.guild.channels.find('name', '🚁bvn-bye')
+    var embed = new Discord.RichEmbed()
+    .setAuthor("Un soldat est parti..", message.author.avatarURL)
+    .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
+    .setColor('#00FFFF')
+    .setTimestamp()
+    return welcomechannel.send(embed)
+});
+
+bot.on('message', message => {
+    if(message.content.startsWith(prefix + "bvn")) {
+        if (message.author.id === "353859650686550027" && "342589782205136896") {
+            message.delete()
+            var embed = new Discord.RichEmbed()
+            .setAuthor("Nouvelle recrue !", message.author.avatarURL)
+            .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres**. :slight_smile:`)
+            .setColor('#FFFFFF')
+            .setTimestamp()
+            message.channel.send(embed)
+        }else{
+            return message.reply("vous n'avez pas la permission exacte pour executer cette commande.")
         }
-        let token = config.token.replace(/\./g, "\.")
-        let re = new RegExp(token, 'g') 
-        ev = ev.replace(re, "*R-eD-Ac-Te-D-*");
-        var eval = new Discord.RichEmbed()
-        .setColor('#36393F')
-        .addField(":inbox_tray: Input", "```js\n"+code+"```")
-        .addField(":outbox_tray:  Output", "```js\n"+ev+"```")
-        .setFooter(`Neko Eval`)
-        message.channel.sendEmbed(eval);
-        } catch(err) {
-            message.channel.sendMessage('`ERROR :` ```js\n'+err+"```")
+    }
+
+    if(message.content.startsWith(prefix + "bye")) {
+        if (message.author.id === "353859650686550027" && "342589782205136896") {
+            message.delete()
+            var embed = new Discord.RichEmbed()
+            .setAuthor("Un soldat est parti..", message.author.avatarURL)
+            .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
+            .setColor('#00FFFF')
+            .setTimestamp()
+            message.channel.send(embed)
+        }else{
+            return message.reply("vous n'avez pas la permission exacte pour executer cette commande.")
         }
     }
 });
