@@ -13,7 +13,7 @@ bot.login(process.env.loginuser);
 bot.on('guildMemberAdd', member => {
     const welcomechannel = member.guild.channels.find('name', '🚁bvn-bye')
     var embed = new Discord.RichEmbed()
-    .setAuthor("Une nouvelle personne vient d'entrée !", message.author.avatarURL)
+    .setAuthor("Une nouvelle personne vient d'entrée !")
     .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres** !`)
     .setColor('#FFFFFF')
     .setTimestamp()
@@ -23,7 +23,7 @@ bot.on('guildMemberAdd', member => {
 bot.on('guildMemberRemove', member => {
     const welcomechannel = member.guild.channels.find('name', '🚁bvn-bye')
     var embed = new Discord.RichEmbed()
-    .setAuthor("Un soldat est parti..", message.author.avatarURL)
+    .setAuthor("Un soldat est parti..")
     .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
     .setColor('#00FFFF')
     .setTimestamp()
@@ -35,7 +35,7 @@ bot.on('message', message => {
         if (message.author.id === "353859650686550027" && "342589782205136896") {
             message.delete()
             var embed = new Discord.RichEmbed()
-            .setAuthor("Nouvelle recrue !", message.author.avatarURL)
+            .setAuthor("Nouvelle recrue !")
             .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres**. :slight_smile:`)
             .setColor('#FFFFFF')
             .setTimestamp()
@@ -49,7 +49,7 @@ bot.on('message', message => {
         if (message.author.id === "353859650686550027" && "342589782205136896") {
             message.delete()
             var embed = new Discord.RichEmbed()
-            .setAuthor("Un soldat est parti..", message.author.avatarURL)
+            .setAuthor("Un soldat est parti..")
             .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
             .setColor('#00FFFF')
             .setTimestamp()
