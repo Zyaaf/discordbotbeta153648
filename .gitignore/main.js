@@ -11,7 +11,7 @@ bot.on('ready', () => {
 bot.login(process.env.loginuser);
 
 bot.on('guildMemberAdd', member => {
-    const welcomechannel = member.guild.channels.find('name', '🙌◾bvn-bye')
+    const welcomechannel = member.guild.channels.find('name', '🌴➵bvn-bye')
     var embed = new Discord.RichEmbed()
     .setAuthor("Une nouvelle personne vient d'entrée !")
     .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres** !`)
@@ -21,7 +21,7 @@ bot.on('guildMemberAdd', member => {
 });
 
 bot.on('guildMemberRemove', member => {
-    const welcomechannel = member.guild.channels.find('name', '🙌◾bvn-bye')
+    const welcomechannel = member.guild.channels.find('name', '🌴➵bvn-bye')
     var embed = new Discord.RichEmbed()
     .setAuthor("Un soldat est parti..")
     .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
