@@ -11,23 +11,21 @@ bot.on('ready', () => {
 bot.login(process.env.loginuser);
 
 bot.on('guildMemberAdd', member => {
-    const welcomechannel = member.guild.channels.find('name', '🌴➵bvn-bye')
     var embed = new Discord.RichEmbed()
     .setAuthor("Une nouvelle personne vient d'entrée !")
     .setDescription(`Bienvenue **${message.author.username}** sur ` + message.guild.name + ` !\nNous sommes désormais **` + message.guild.memberCount + ` membres** !`)
     .setColor('#00FF00')
     .setTimestamp()
-    return welcomechannel.get("547708673296826388").send(embed)
+    bot.channels.get("547708673296826388").send(embed)
 });
 
 bot.on('guildMemberRemove', member => {
-    const welcomechannel = member.guild.channels.find('name', '🌴➵bvn-bye')
     var embed = new Discord.RichEmbed()
     .setAuthor("Une personne est parti..")
     .setDescription(`**${message.author.username}** a décidé de quitter ` + message.guild.name + ` !\nNous sommes plus que **` + message.guild.memberCount + ` membres**. :frowning:`)
     .setColor('#FF0000')
     .setTimestamp()
-    return welcomechannel.get("547708673296826388").send(embed)
+    bot.channels.get("547708673296826388").send(embed)
 });
 
 bot.on('message', message => {
