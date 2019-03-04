@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 var bot = new Discord.Client();
 
-var prefix = ("&");
+var prefix = (".");
 
 bot.on('ready', () => {
     bot.user.setActivity('Fortnite', {type: 'WATCHING'});
@@ -68,7 +68,7 @@ bot.on('message', message => {
            .setColor("RANDOM")
            .setFooter("Vous devez répondre avec ✅ et ❌ !")
            .setTimestamp()
-       message.guild.channels.find('name', 'sondage').sendEmbed(embed)
+            message.channel.send(embed)
        .then(function (message) {
            message.react("✅")
            message.react("❌")
