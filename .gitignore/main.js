@@ -56,4 +56,26 @@ bot.on('message', message => {
             return message.reply("vous n'avez pas la permission exacte pour executer la commande **bye**.")
         }
     }
+
+    if(message.content.startsWith(prefix + "bye")) {
+        if (message.member.hasPermission("ADMINISTRATEUR")) { 
+            message.delete()
+            let args = message.content.split(" ").slice(1);
+       let thingToEcho = args.join(" ")
+       var embed = new Discord.RichEmbed()
+           .setDescription("Sondage :bar_chart:")
+           .addField(thingToEcho)
+           .setColor("RANDOM")
+           .setFooter("Vous devez répondre avec ✅ et ❌ !")
+           .setTimestamp()
+       message.guild.channels.find('name', 'sondage').sendEmbed(embed)
+       .then(function (message) {
+           message.react("✅")
+           message.react("❌")
+       }).catch(function() {
+       });
+       }else{
+           return message.reply("Tu n'as pas la permission.")
+        }
+    }
 });
