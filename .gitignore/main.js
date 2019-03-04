@@ -57,7 +57,7 @@ bot.on('message', message => {
         }
     }
 
-    if(message.content.startsWith(prefix + "bye")) {
+    if(message.content.startsWith(prefix + "sondage")) {
         if (message.member.hasPermission("ADMINISTRATEUR")) { 
             message.delete()
             let args = message.content.split(" ").slice(1);
