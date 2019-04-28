@@ -4,7 +4,7 @@ var bot = new Discord.Client();
 var prefix = ("_");
 
 bot.on('ready', () => {
-	bot.user.setActivity('Protège 1684 serveurs 🚨', {url:"https://www.twitch.tv/spykoze", type: "STREAMING"})
+	bot.user.setActivity('Sur 1684 serveurs || Blackghost', {url:"https://www.twitch.tv/spykoze", type: "STREAMING"})
     console.log(`${bot.user.tag} est en ligne !`)
 });
 
