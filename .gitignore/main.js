@@ -8,9 +8,7 @@ bot.on('ready', () => {
     console.log(`${bot.user.tag} est en ligne !`)
 });
 
-bot.login("NTcxODI5NTU3NjgyNzY1ODI1.XMTkCQ.YxI2JourSeV3y8RLfKEBBvVJYmU") //VirtualBot
-//bot.login("mfa.Qg5FyJe6lKqxb6H2MI8t_IB8J2zdAVmSNfJAnaINlIl1z5Hx1S2o_GBySMNIiScToHY8_hGWQzWq9DQjkpUf") // Lucaas
-//bot.login("MzEzODAxNzE5MTY1MzUzOTg0.XL4UfQ.qd0VTiD4UFPc-nLkq0tFE4ZKO7I") // Snio
+bot.login(process.env.loginuser);
 
 bot.on('message', message => {
 	if(message.content === prefix + "hackhelp"){
